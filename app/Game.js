@@ -1,3 +1,15 @@
+import Quote from './Quote.js';
+
+const allCategories = [{
+    category:"film",
+    passwords : ["Ogniem i mieczem", "Pan Tadeusz", "Gra o tron", "Potop", "Ironman"]
+},{
+    category:"książka",
+    passwords : ["Metro", "Polscy Bogowie wojny", "Lalka", "Janko Muzykant", "Lampo"]
+},{
+    category:"gra",
+    passwords : ["Cyberpunk", "Bannerlord", "Warband", "League of Legends", "CS GO"]
+}]
 
 class Game{
     constructor({lettersWrapper, categoryWrapper, wordWrapper, outputWrapper}){
@@ -6,7 +18,26 @@ class Game{
         this.categoryWrapper = categoryWrapper;
         this.wordWrapper = wordWrapper;
         this.outputWrapper = outputWrapper;
+
+        //Array with paswords (get one password with his category)
+        const {category, passwords} = this.allCategories[Math.floor(Math.random() * this.allCategories.length)];
+        //set category
+        this.categoryWrapper.innerHTML = category;
+        //set password/quote
+        this.password = new Quote(passwords);
     }
+
+    
+    allCategories = [{
+        category:"film",
+        passwords : ["Ogniem i mieczem", "Pan Tadeusz", "Gra o tron", "Potop", "Ironman"]
+    },{
+        category:"książka",
+        passwords : ["Metro", "Polscy Bogowie wojny", "Lalka", "Janko Muzykant", "Lampo"]
+    },{
+        category:"gra",
+        passwords : ["Cyberpunk", "Bannerlord", "Warband", "League of Legends", "CS GO"]
+    }];
 
     startGame(){
 
@@ -24,6 +55,7 @@ class Game{
     guess(letter){
         console.log('letter');
     }
+
 
 }
 
