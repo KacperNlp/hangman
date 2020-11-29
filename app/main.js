@@ -6,3 +6,5 @@ const newGame = new Game({
     wordWrapper: document.getElementById('word'),
     outputWrapper: document.getElementById('output'),
 })
+
+newGame.startGame();
